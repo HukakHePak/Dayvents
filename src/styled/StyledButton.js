@@ -6,4 +6,5 @@ export const StyledButton = styled.button`
     background: transparent;
     visibility: ${props => props.hidden ? 'hidden' : 'visible'};
     cursor: pointer;
+    font-size: 20px;
 `;

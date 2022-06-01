@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import { StyledCalendar } from "./styled/StyledCalendar";
-import { StyledPlusLine } from "./styled/StyledPlusLine";
-import EventsData from "./EventsData.json";
 import { useState } from "react";
-import { createCalendarEvent } from "./helpers/createCalendarEvent";
 
 const AppStyle = styled.div`
   height: 100%;
   display: flex;
-  flex-direction: column;
 `;
 
 const Theme = {
@@ -18,26 +14,11 @@ const Theme = {
 };
 
 function App() {
-  const [events, setEvents] = useState(EventsData);
-  //console.log(events);
-  function addEventHandler() {
-    try {
-      const date = prompt(
-        "Enter event time: \n YYYY-MM-DD HH:mm:ss",
-        new Date().toISOString()
-      );
-
-      setEvents([...events, createCalendarEvent(date, Theme.eventColor)]);
-    } catch {
-      console.error("invalid date");
-    }
-  }
+  const [events, setEvents] = useState([]);
 
   return (
     <AppStyle>
-      <StyledPlusLine theme={{ color: "#ff3131" }} onClick={addEventHandler}>
-        Interview Calendar
-      </StyledPlusLine>
+
       <StyledCalendar
         theme={Theme}
         events={events}

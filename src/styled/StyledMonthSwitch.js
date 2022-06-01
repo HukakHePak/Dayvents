@@ -13,5 +13,6 @@ export const StyledMonthSwitch = styled(MonthSwitch)`
     border-bottom: 2px solid #eeeeee;
     height: 40px;
     box-sizing: border-box;
-    padding: 0 60px;
+    padding: 0 50px;
+    color: ${(props) => props.color};
 `;
