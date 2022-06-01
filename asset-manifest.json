@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Dayvents/static/css/main.8d95d840.css",
+    "main.js": "/Dayvents/static/js/main.8a29367c.js",
+    "index.html": "/Dayvents/index.html",
+    "main.8d95d840.css.map": "/Dayvents/static/css/main.8d95d840.css.map",
+    "main.8a29367c.js.map": "/Dayvents/static/js/main.8a29367c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d95d840.css",
+    "static/js/main.8a29367c.js"
+  ]
+}
