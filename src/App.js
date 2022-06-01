@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { StyledCalendar } from "./styled/StyledCalendar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: "100%" }}>
+      <StyledCalendar
+        theme={{ color: "#ff3131" }}
+        events={[
+          {
+            id: 1,
+            startAt: "2022-06-01T18:00:00.000Z",
+            endAt: "2022-06-01T19:00:00.000Z",
+            summary: "test",
+            color: "blue",
+            calendarID: "work",
+          },
+        ]}
+      />
     </div>
   );
 }
