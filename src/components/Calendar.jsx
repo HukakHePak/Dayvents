@@ -18,8 +18,9 @@ export function Calendar(props) {
     onChange(events.filter((item) => item.id !== selected.id));
   }
 
-  function selectHandler(event) {   
-    setSelected((state) => state && state.id === event.id ? null : event);
+  function selectHandler(event) {
+    console.log(calendar.current);
+    setSelected((state) => (state && state.id === event.id ? null : event));
   }
 
   return (
@@ -30,9 +31,14 @@ export function Calendar(props) {
       >
         {month}
       </StyledMonthSwitch>
+
       <Kalend
         kalendRef={calendar}
-        events={events.map(item => item.id === selected?.id ? { ...item, color: theme.activeColor } : item)}
+        events={events.map((item) =>
+          item.id === selected?.id
+            ? { ...item, color: theme.activeColor }
+            : item
+        )}
         hourHeight={60}
         onEventClick={selectHandler}
         onEventDragFinish={selectHandler}
@@ -43,6 +49,7 @@ export function Calendar(props) {
           },
         }}
       />
+
       <StyledToolPanel>
         <StyledButton
           color={theme.color}
