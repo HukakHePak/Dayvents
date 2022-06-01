@@ -5,7 +5,7 @@ export const StyledMonthSwitch = styled(MonthSwitch)`
     position: absolute;
     z-index: 25;
     width: 100%;
-    top: 55px;
+    top: 65px;
     display: flex;
     justify-content: center;
     justify-content: space-between;

@@ -1,6 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { StyledCalendar } from "./styled/StyledCalendar";
-import { StyledPlusLine } from './styled/StyledPlusLine';
+import { StyledPlusLine } from "./styled/StyledPlusLine";
+import EventsData from "./EventsData.json";
+import { useState } from "react";
+import { createCalendarEvent } from "./helpers/createCalendarEvent";
 
 const AppStyle = styled.div`
   height: 100%;
@@ -8,22 +11,37 @@ const AppStyle = styled.div`
   flex-direction: column;
 `;
 
+const Theme = {
+  color: "#ff3131",
+  activeColor: "#b3b7ff",
+  eventColor: "#ebecff",
+};
+
 function App() {
+  const [events, setEvents] = useState(EventsData);
+  //console.log(events);
+  function addEventHandler() {
+    try {
+      const date = prompt(
+        "Enter event time: \n YYYY-MM-DD HH:mm:ss",
+        new Date().toISOString()
+      );
+
+      setEvents([...events, createCalendarEvent(date, Theme.eventColor)]);
+    } catch {
+      console.error("invalid date");
+    }
+  }
+
   return (
     <AppStyle>
-      <StyledPlusLine theme={{ color: "#ff3131" }} onClick> Interview Calendar </StyledPlusLine>
+      <StyledPlusLine theme={{ color: "#ff3131" }} onClick={addEventHandler}>
+        Interview Calendar
+      </StyledPlusLine>
       <StyledCalendar
-        theme={{ color: "#ff3131" }}
-        events={[
-          {
-            id: 1,
-            startAt: "2022-06-01T18:00:00.000Z",
-            endAt: "2022-06-01T19:00:00.000Z",
-            summary: "test",
-            color: "blue",
-            calendarID: "work",
-          },
-        ]}
+        theme={Theme}
+        events={events}
+        onChange={setEvents}
       />
     </AppStyle>
   );

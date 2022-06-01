@@ -1,36 +1,42 @@
 import Kalend from "kalend";
 import "kalend/dist/styles/index.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { getMonth } from "../helpers/getMonth";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledMonthSwitch } from "../styled/StyledMonthSwitch";
 import { StyledToolPanel } from "../styled/StyledToolPanel";
 
 export function Calendar(props) {
-  const { className, theme, events } = props;
+  const { className, theme, events, onChange } = props;
   const calendar = useRef(null);
+
+  const [selected, setSelected] = useState(null);
+  const [month, setMonth] = useState("");
+
+  function removeHandler() {
+    setSelected(null);
+    onChange(events.filter((item) => item.id !== selected.id));
+  }
+
+  function selectHandler(event) {   
+    setSelected((state) => state && state.id === event.id ? null : event);
+  }
 
   return (
     <div className={className}>
       <StyledMonthSwitch
         onNext={() => calendar?.current.navigateForward()}
         onLast={() => calendar?.current.navigateBackwards()}
-        //onMonthChange={() => calendar?.current.navigateToTodayDate()}
       >
-        June
+        {month}
       </StyledMonthSwitch>
       <Kalend
         kalendRef={calendar}
-        events={events}
+        events={events.map(item => item.id === selected?.id ? { ...item, color: theme.activeColor } : item)}
         hourHeight={60}
-        //onEventClick={onEventClick}
-        //onNewEventClick={onNewEventClick}
-        //disabledViews={[CalendarView.DAY]}
-        // onSelectView={console.log}
-        // onSelectViewData={console.log}
-        // OnPageChangeData={console.log}
-        onPageChange={console.log}
-        timeFormat={"24"}
-        weekDayStart={"Monday"}
+        onEventClick={selectHandler}
+        onEventDragFinish={selectHandler}
+        onPageChange={(event) => setMonth(getMonth(event.rangeFrom))}
         colors={{
           light: {
             primaryColor: theme.color,
@@ -38,8 +44,19 @@ export function Calendar(props) {
         }}
       />
       <StyledToolPanel>
-        <StyledButton color={theme.color} active> Today </StyledButton>
-        <StyledButton color={theme.color} > Delete </StyledButton>
+        <StyledButton
+          color={theme.color}
+          onClick={() => calendar?.current.navigateToTodayDate()}
+        >
+          Today
+        </StyledButton>
+        <StyledButton
+          color={theme.color}
+          onClick={removeHandler}
+          hidden={!selected}
+        >
+          Delete
+        </StyledButton>
       </StyledToolPanel>
     </div>
   );

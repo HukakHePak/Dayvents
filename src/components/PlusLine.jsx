@@ -7,12 +7,12 @@ const Button = styled(StyledButton)`
 `;
 
 export function PlusLine(props) {
-  const { className, children, theme } = props;
+  const { className, children, theme, onClick } = props;
 
   return (
     <div className={className}>
       <span> {children} </span>
-      <Button color={theme.color}> + </Button>
+      <Button onClick={onClick} color={theme.color}> + </Button>
     </div>
   );
 }
