@@ -2,8 +2,13 @@ import styled from "styled-components";
 import { StyledButton } from "../styled/StyledButton";
 
 const Button = styled(StyledButton)`
-  widtj: 30px;
-  height: 30px;
+  font-size: 40px;
+  font-weight: 300;
+`;
+
+const Span = styled.span`
+  font-size: 30px;
+  font-weight: 300;
 `;
 
 export function PlusLine(props) {
@@ -11,7 +16,7 @@ export function PlusLine(props) {
 
   return (
     <div className={className}>
-      <span> {children} </span>
+      <Span> {children} </Span>
       <Button onClick={onClick} color={theme.color}> + </Button>
     </div>
   );
