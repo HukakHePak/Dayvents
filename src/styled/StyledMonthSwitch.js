@@ -5,12 +5,13 @@ export const StyledMonthSwitch = styled(MonthSwitch)`
     position: absolute;
     z-index: 25;
     width: 100%;
-    top: 55px;
+    top: 65px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     background: #f6f6f6;
     border-bottom: 2px solid #eeeeee;
     height: 40px;
-
+    box-sizing: border-box;
+    padding: 0 60px;
 `;
