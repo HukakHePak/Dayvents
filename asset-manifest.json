@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Dayvents/static/css/main.8d95d840.css",
-    "main.js": "/Dayvents/static/js/main.8a29367c.js",
+    "main.css": "/Dayvents/static/css/main.58d59e6c.css",
+    "main.js": "/Dayvents/static/js/main.256f6eb8.js",
     "index.html": "/Dayvents/index.html",
-    "main.8d95d840.css.map": "/Dayvents/static/css/main.8d95d840.css.map",
-    "main.8a29367c.js.map": "/Dayvents/static/js/main.8a29367c.js.map"
+    "main.58d59e6c.css.map": "/Dayvents/static/css/main.58d59e6c.css.map",
+    "main.256f6eb8.js.map": "/Dayvents/static/js/main.256f6eb8.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d95d840.css",
-    "static/js/main.8a29367c.js"
+    "static/css/main.58d59e6c.css",
+    "static/js/main.256f6eb8.js"
   ]
 }
