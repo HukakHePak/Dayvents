@@ -8,9 +8,10 @@ export const StyledMonthSwitch = styled(MonthSwitch)`
     top: 55px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     background: #f6f6f6;
     border-bottom: 2px solid #eeeeee;
     height: 40px;
-
+    box-sizing: border-box;
+    padding: 0 60px;
 `;

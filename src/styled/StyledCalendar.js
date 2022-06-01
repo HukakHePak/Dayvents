@@ -3,10 +3,13 @@ import { Calendar } from "../components/Calendar";
 
 export const StyledCalendar = styled(Calendar)`
   height: 100%;
+  position: relative;
 
   & .Kalend__Calendar__root {
     height: 100%;
     gap: 22px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
   }
 
   & .Kalend__CalendarDesktopNavigation__container {
